@@ -13,6 +13,7 @@ export const Input = styled.input`
   background: ${({ theme }) => theme.lightGray};
   border: 0.1rem solid ${({ theme }) => theme.gray};
   border-radius: ${({ theme }) => theme.radius};
+  -webkit-appearance: none;
 
   :focus {
     outline: none;
@@ -29,6 +30,7 @@ export const TextArea = styled.textarea`
   border: 0.1rem solid ${({ theme }) => theme.gray};
   border-radius: ${({ theme }) => theme.radius};
   resize: vertical;
+  -webkit-appearance: none;
 
   :focus {
     outline: none;
