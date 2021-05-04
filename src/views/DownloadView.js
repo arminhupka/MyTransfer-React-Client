@@ -78,7 +78,9 @@ const DownloadView = ({ match }) => {
               <>
                 <Title>Download your file</Title>
                 <Button>
-                  <StyledLink href={file}>Download</StyledLink>
+                  <StyledLink href={file} download>
+                    Download
+                  </StyledLink>
                 </Button>
               </>
             ) : null}
