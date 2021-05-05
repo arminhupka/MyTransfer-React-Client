@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 import Wrapper from "../Wrapper/Wrapper";
 import { Input } from "../Elements/Elements";
+import IconWrapper from "../IconWrapper/IconWrapper";
 
 import reactIcon from "../../assets/ready-icon.svg";
 
@@ -12,11 +13,6 @@ const StyledWrapper = styled(Wrapper)`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-`;
-
-const CheckIcon = styled.img`
-  width: 25%;
-  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
 `;
 
 const StyledInput = styled(Input)`
@@ -28,7 +24,7 @@ const UploadDetails = () => {
 
   return (
     <StyledWrapper>
-      <CheckIcon src={reactIcon} alt="Ready Icon" />
+      <IconWrapper icon={reactIcon} />
       <h2>File is ready to share</h2>
       <StyledInput disabled value={`${process.env.REACT_APP_HOST}/${fileState.slug}`} />
     </StyledWrapper>

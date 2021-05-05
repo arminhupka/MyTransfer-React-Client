@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { Circle } from "rc-progress";
 import { useSelector } from "react-redux";
 
 import Wrapper from "../Wrapper/Wrapper";
+import ProgressCircle from "./ProgressCircle/ProgressCircle";
 
 const StyledWrapper = styled(Wrapper)`
   display: flex;
@@ -27,7 +27,13 @@ const UploadStatus = () => {
   return (
     <StyledWrapper>
       <Percents>{fileState.uploadedPercent}%</Percents>
-      <Circle percent={fileState.uploadedPercent} strokeWidth="4" strokeColor="#EE3B25" />
+      <ProgressCircle
+        progress={fileState.uploadedPercent}
+        size={300}
+        strokeWidth={15}
+        circleOneStroke="#B5B7C4"
+        circleTwoStroke="#549CF8"
+      />
     </StyledWrapper>
   );
 };

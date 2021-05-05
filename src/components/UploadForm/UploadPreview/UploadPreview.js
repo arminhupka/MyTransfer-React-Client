@@ -33,19 +33,20 @@ const ImagePrev = styled.div`
 `;
 
 const UploadPreview = ({ fileName, fileSize, filePreview }) => {
-  // const convertFileSize = (bytes) => {
-  //   const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
-  //   if (bytes === 0) return "0 Byte";
-  //   const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
-  //   return Math.round(bytes / Math.pow(1024, i), 2) + " " + sizes[i];
-  // };
+  const convertBytes = (bytes) => {
+    const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
+    if (bytes === 0) return "n/a";
+    const i = Math.floor(Math.log(bytes) / Math.log(1024));
+    if (i === 0) return `${bytes} ${sizes[i]})`;
+    return `${(bytes / 1024 ** i).toFixed(1)} ${sizes[i]}`;
+  };
 
   return (
     <Wrapper>
       {filePreview ? <ImagePrev src={filePreview} /> : null}
       <InfoWrapper>
         <FileName>{fileName}</FileName>
-        <FileSize>{fileSize}</FileSize>
+        <FileSize>{convertBytes(fileSize)}</FileSize>
       </InfoWrapper>
     </Wrapper>
   );
