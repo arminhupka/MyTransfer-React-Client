@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 // COMPONENTS
-import { FileDropper, Input, Label, TextArea, FilePlaceholder, Button } from "../Elements/Elements";
+import { Button, FileDropper, FilePlaceholder, Input, Label, TextArea } from "../Elements/Elements";
 import UploadPreview from "./UploadPreview/UploadPreview";
 import Wrapper from "../Wrapper/Wrapper";
 
 // ACTIONS
-import { loadFile, setPercent, uploadStart, uploadEnd, setSlug } from "../../actions/fileActions";
+import { loadFile, setPercent, setSlug, uploadEnd, uploadStart } from "../../actions/fileActions";
 
 const StyledForm = styled.form`
   display: flex;
@@ -98,6 +98,7 @@ const UploadForm = () => {
       setEmailTo("");
       setFile(null);
     } catch (err) {
+      console.log(err);
       const errorMsg = err.response.data.error;
       setError(errorMsg);
 
@@ -124,11 +125,24 @@ const UploadForm = () => {
         }}
       >
         <Label>Your Name</Label>
-        <Input name="name" placeholder="Write your name" value={name} onChange={handleInput} />
+        <Input name="name" placeholder="Write your name" value={name} onChange={handleInput} required />
         <Label>Description</Label>
-        <TextArea name="description" placeholder="Write detailed description" value={description} onChange={handleInput} />
+        <TextArea
+          name="description"
+          placeholder="Write detailed description"
+          value={description}
+          onChange={handleInput}
+          required
+        />
         <Label>Email to</Label>
-        <Input name="emailTo" placeholder="Enter the recipient email" value={emailTo} onChange={handleInput} />
+        <Input
+          type="email"
+          name="emailTo"
+          placeholder="Enter the recipient email"
+          value={emailTo}
+          onChange={handleInput}
+          required
+        />
         {file === null ? (
           <>
             <FilePlaceholder htmlFor="fileUpload" />
