@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
 const Wrapper = styled.div`
-  width: 15rem;
-  height: 15rem;
+  width: 10rem;
+  height: 10rem;
   margin-bottom: 3rem;
   background-color: ${({ theme }) => theme.primary};
   mask: url(${({ icon }) => icon}) no-repeat center;

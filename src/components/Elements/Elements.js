@@ -75,10 +75,11 @@ export const FileDropper = styled.input`
 `;
 
 export const Button = styled.button`
-  background-color: ${({ theme }) => theme.primary};
+  width: 100%;
   padding: 1.5rem 2.5rem;
-  color: #fff;
   font-weight: 600;
+  color: #fff;
+  background-color: ${({ theme }) => theme.primary};
   border: none;
   border-radius: ${({ theme }) => theme.radius};
   cursor: pointer;
