@@ -7,7 +7,9 @@ import { Helmet } from "react-helmet";
 import MainLayout from "../layout/MainLayout";
 import Wrapper from "../components/Wrapper/Wrapper";
 import { Button } from "../components/Elements/Elements";
+import IconWrapper from "../components/IconWrapper/IconWrapper";
 
+import downloadIcon from "../assets/file-download-solid.svg";
 import errorIcon from "../assets/error-icon.svg";
 
 const PageWrapper = styled.div`
@@ -32,11 +34,6 @@ const Title = styled.h1`
 
 const StyledLink = styled.a`
   color: inherit;
-`;
-
-const ErrorIcon = styled.img`
-  width: 25%;
-  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
 `;
 
 const DownloadView = ({ match }) => {
@@ -70,12 +67,13 @@ const DownloadView = ({ match }) => {
           <StyledWrapper>
             {error ? (
               <>
-                <ErrorIcon src={errorIcon} />
+                <IconWrapper icon={errorIcon} error />
                 <Title>{error}</Title>
               </>
             ) : null}
             {file ? (
               <>
+                <IconWrapper icon={downloadIcon} />
                 <Title>Download your file</Title>
                 <Button>
                   <StyledLink href={file} download>
