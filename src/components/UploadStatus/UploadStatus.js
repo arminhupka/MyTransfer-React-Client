@@ -29,8 +29,8 @@ const UploadStatus = () => {
       <Percents>{fileState.uploadedPercent}%</Percents>
       <ProgressCircle
         progress={fileState.uploadedPercent}
-        size={300}
-        strokeWidth={15}
+        size={200}
+        strokeWidth={10}
         circleOneStroke="#B5B7C4"
         circleTwoStroke="#549CF8"
       />
